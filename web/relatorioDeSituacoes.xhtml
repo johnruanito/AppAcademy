@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="pt-br"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      >
+    <!--
+    xmlns:h="http://java.sun.com/jsf/html"
+    -->
+
+    <ui:composition template="template.xhtml">
+        <ui:param name="title" value="RELATORIO DE SITUACOES"></ui:param>
+
+
+        <ui:define name ="conteudo">
+
+            <f:metadata>
+
+                <f:viewAction action="#{relatorioSituacoesBean.check()}"></f:viewAction>
+            </f:metadata>
+            <!-- Cabecalho - fim -->
+
+            <form jsf:id="form">
+
+                <fieldset >
+                    <legend>Situacao</legend>
+                    <label for="situacao">Situacao</label><br /> 
+                    <select jsf:value="#{relatorioSituacoesBean.situacao}" id="situacao" size="0">
+                        <f:selectItems value="#{dataBean.situacoes}"></f:selectItems>
+
+                    </select>
+                    <br /><br />
+
+                    <input type="submit" value="Gerar Relatorio" jsf:action="#{relatorioSituacoesBean.gerarRelatorio()}"></input>
+
+                    <br />
+
+
+                </fieldset>
+                <br />
+                <h:panelGroup rendered="#{not empty relatorioSituacoesBean.alunos}">
+                    <fieldset id="tabela">
+
+                        <table border = "1">
+                            <tr>
+                                <th>Matricula</th>
+                                <th>Nome</th>
+                                <th>Situacao</th>
+                                <th>Celular</th>
+                                <th>Acoes</th>
+
+                            </tr>
+                            <ui:repeat var="al" value="#{relatorioSituacoesBean.alunos}">
+                                <tr>
+                                    <td>#{al.matricula}</td>
+                                    <td>#{al.nome}</td>
+                                    <td>#{al.situacao}</td>
+                                    <td>#{al.telefone}</td>
+                                    <td>
+                                        <input type="button" value=" Editar" jsf:outcome="dadosAluno?matricula=#{al.matricula}"></input>
+                                    </td>
+
+                                </tr>
+
+                            </ui:repeat>
+
+
+                        </table>
+                    </fieldset>
+                </h:panelGroup>
+
+            </form>
+            <!-- Rodape - Inicio -->
+        </ui:define>
+    </ui:composition>
+
+</html>
+<!-- Rodape - Fim -->

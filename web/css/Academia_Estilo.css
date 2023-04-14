@@ -1,0 +1,210 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17 de jul. de 2021, 00:48:30
+    Author     : Ruan
+*/
+
+*
+
+{
+    font-family: "Arial";
+    text-align: center;
+        
+    
+}
+
+
+
+
+body
+{
+    background-color: #000000;
+    border-left: 50px solid black;    
+    border-right: 50px solid black;
+    border-bottom: 200px solid black;
+    border-radius: 20px;
+    /*border-top: 50px solid black;*/
+    
+    
+}
+
+
+
+
+nav
+{
+margin-top: 20px;    
+background-color: #003399;
+font-size: 20px;
+border-radius: 5px;
+display: inline-block;
+padding: 5px 5px;
+    
+}
+
+nav a
+{
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 10px;
+    list-style: none;
+}
+nav a:hover
+{
+    text-decoration: underline;
+}
+
+h1
+{
+ background-color: #003399;
+ color: white;
+ text-transform: uppercase;
+ font-style: italic;
+ font-size: 29px;
+ padding: 5px;
+ width: 500px;
+ border-left: 400px solid  #003399;
+ border-right: 400px solid #003399;
+ border-top: 5px solid ;
+ border-bottom: 5px solid ;
+ border-radius: 10px;
+    
+}
+h1,div,#infoMessage,fieldset,fieldset#tabela,table
+{
+margin-left: auto;
+margin-right: auto;
+
+
+}
+
+div#infoMessage{
+    
+    color: white;
+}
+
+form
+{
+    
+    background-color: #333333;
+}
+
+
+fieldset
+{
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    background-color: #ff0000;
+    width: 500px;
+    border-radius: 15px;
+    text-align: left;
+}
+
+fieldset#tabela
+{
+    border-left: 5px solid black;
+    border-right: 5px solid black;
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    background-color: #FFFFFF;
+    width: 550px;
+    border-radius: 5px;
+}
+tr{
+    
+    background-color: #cccccc;
+    
+}
+
+
+legend
+{
+    padding-top: 5px;
+    padding-left: 7px;
+    padding-right: 7px;
+    font-style: italic;
+    font-size: 20px;
+    text-transform: uppercase;
+    border-radius: 10px;
+    text-align: left;
+    background-color: #FFFFFF;
+}
+
+label
+{
+    color: #cccccc;
+}
+
+input,select
+{
+    border: 1px solid #2F4F4F;
+    margin-bottom: 7px;
+    text-align: left;
+    background-color: white;
+    border-radius: 5px;
+}
+
+input#logradouro,#nome,#complemento,#email
+{
+    width: 95%;
+    
+}
+input#cep 
+{
+    width: 20%;
+}
+input#ddd
+{
+    width: 30px;
+}
+input#numeroTel,#rg,#id
+{
+    width: 90px;
+}
+input[type=button],[type=submit]
+{
+    border-bottom: 3px solid black;
+    border-top: 3px solid black;
+    border-right:  3px solid black;
+    border-left: 3px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    text-transform: uppercase;   
+}
+input[type=button]:hover,
+input[type=submit]:hover
+{
+    background-color: #ff0000;
+    border-bottom: 3px solid #003399;
+    border-top: 3px solid #003399;
+    border-left: 3px solid #003399;
+    border-right:  3px solid #003399;
+}
+
+::-webkit-scrollbar{
+    
+    width: 10px;
+}
+::-webkit-scrollbar-track{
+    background: #cccccc;
+    border-radius: 30px;
+       
+    
+}
+
+::-webkit-scrollbar-thumb{
+    background: #333333;
+    border-radius: 30px;
+    
+}
+
+    
+

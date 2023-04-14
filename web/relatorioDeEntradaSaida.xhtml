@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="pt-br"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+
+    <ui:composition template="template.xhtml">
+        <ui:param name="title" value="RELATORIO DE ENTRADA E SAIDA"></ui:param>
+
+        <ui:define name ="conteudo">
+            <!-- Cabecalho - fim -->
+
+            <f:metadata>
+                <f:viewParam name="matricula" value="#{relatorioEntradaSaidaBean.matricula}"></f:viewParam>
+                <f:viewAction action='#{relatorioEntradaSaidaBean.carregarAluno()}'></f:viewAction>
+            </f:metadata>
+            
+            <form jsf:id="form">
+
+                <fieldset>
+                    <legend>Parametro de Entrada s Saidas</legend>
+                    <label for = "id">Matricula:</label><br />
+                    <input type="text" jsf:value="#{relatorioEntradaSaidaBean.matricula}" id="id"></input><br />
+
+                    <label for = "dataInicial">Data Inicial</label><br />
+                    <input type="date" jsf:value="#{relatorioEntradaSaidaBean.dataInicial}" id="dataInicial">
+                        <f:convertDateTime type="localDate" pattern="yyyy-MM-dd" />
+                    </input><br /> 
+
+                    <label for = "dataFinal">Data Final</label><br />
+                    <input type="date" jsf:value="#{relatorioEntradaSaidaBean.dataFinal}" id="dataFinal">
+                        <f:convertDateTime type="localDate" pattern="yyyy-MM-dd"></f:convertDateTime>
+                    </input>
+
+
+                    <br />
+
+                    <input type="submit" value="Pesquisa" jsf:action="#{relatorioEntradaSaidaBean.gerarRelatorio()}"></input>
+
+                </fieldset>
+
+                <h:panelGroup rendered="#{not empty relatorioEntradaSaidaBean.acessos}">
+                    <fieldset id="tabela">
+
+                        <table border = "1">
+                            <thead>
+                                <tr>
+                                    <th>Matricula</th>
+                                    <th>Nome</th>
+                                    <th>Entrada</th>
+                                    <th>Saida</th>
+                                    <th>Duracao</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <ui:repeat var="al" value="#{relatorioEntradaSaidaBean.acessos}">
+                                    <tr>
+                                        <td>#{al.aluno.matricula}</td>
+                                        <td>#{al.aluno.nome}</td>
+                                        <td> 
+                                            <h:outputText value="#{al.entrada}"> 
+                                                <f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy HH:mm"></f:convertDateTime>
+                                            </h:outputText>
+                                        </td>
+                                        <td>
+                                            <h:outputText value="#{al.saida}"> 
+                                                <f:convertDateTime type="localDateTime" pattern="dd/MM/yyyy HH:mm"></f:convertDateTime>
+                                            </h:outputText>
+                                        </td>
+                                        <td>#{al.calculoDuracao()}</td>
+                                    </tr>
+                                </ui:repeat>
+                            </tbody>
+                        </table>
+
+                    </fieldset>
+                </h:panelGroup>
+            </form>
+
+            <!-- Rodape - Inicio -->
+        </ui:define>
+    </ui:composition>
+
+</html>
+
+<!-- Rodape - Fim -->

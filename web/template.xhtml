@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xml:lang="pt-br">
+
+    <!-- cabecalho - inicio -->
+
+    <head jsf:id="head">
+        <title>SISTEMA ACADEMIA</title>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        <link rel="stylesheet" type="text/css" href="css/Academia_Estilo.css" />
+    </head>
+    <body>
+        <header>
+            <a jsf:outcome="template"><img id ="logo" src="image/ACADEMIA.png" ></img></a>
+            <nav>
+                <div id = "menu">
+                    <a jsf:outcome="dadosAluno">Novo Aluno</a>
+                    <a jsf:outcome="pesquisaDeAlunos?clear=true">Pesquisa de Alunos</a>
+                    <a jsf:outcome="controleDeAcesso">Controle de Acesso</a>
+                    <a jsf:outcome="relatorioDeEntradaSaida">Relatorios de Entradas e Saidas</a>
+                    <a jsf:outcome="relatorioDeSituacoes?clear=true">Relatorios de Situacao</a>
+                </div>
+            </nav>
+        </header>
+        
+        <h1>#{title}</h1>
+        
+         <h:panelGroup rendered="#{!facesContext.messageList.isEmpty()}">
+                <div id="infoMessage">
+                    <h:messages ></h:messages>
+                </div>
+            </h:panelGroup> 
+        
+        <!-- Cabecalho - fim -->
+        
+         <ui:insert name="conteudo"/>
+    </body>
+
+</html>

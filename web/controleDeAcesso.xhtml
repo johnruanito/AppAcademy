@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="pt-br"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+    >
+<!--
+xmlns:h="http://java.sun.com/jsf/html"
+    -->
+    
+    <ui:composition template="template.xhtml">
+        <ui:param name="title" value="CONTROLE DE ACESSO"></ui:param>
+        
+        <ui:define name ="conteudo">
+<!-- Cabecalho - fim -->
+           
+<br />
+            <form jsf:id = "form">
+                
+                <fieldset>
+                    <legend>Parametro de Acesso</legend>
+                    <label for = "id">MATRICULA:</label> <br />
+                    <input type="text" name="id" id="id" jsf:value="#{controleAcessoBean.matricula}"></input> <br />
+                    <label for = "rg">RG:</label> <br /> 
+                    <input type="text" name="rg" id="rg" jsf:value="#{controleAcessoBean.rg}"></input> <br />
+                </fieldset>
+                
+                <br /> 
+                
+                <input type="submit" value="Registra" jsf:action="#{controleAcessoBean.registrarAcesso()}"> </input>
+            </form>
+
+<!-- Rodape - Inicio -->
+        </ui:define>
+    </ui:composition>
+
+</html>
+
+<!--e - Fim -->
